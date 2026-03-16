@@ -48,7 +48,7 @@ function toggleMute() {
 .side-nav {
   position: fixed;
   right: 24px;
-  top: 50%;
+  top: 20%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
