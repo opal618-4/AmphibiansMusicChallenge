@@ -71,7 +71,7 @@ import { getFrogById } from '../data/frogs'
 import SideNav from '../components/SideNav.vue'
 
 const router = useRouter()
-const { state, totalLevels, resetGame, startGame } = useGameState()
+const { state, totalLevels, startGame } = useGameState()
 
 const scoreEmoji = computed(() => {
   const pct = state.score / totalLevels.value
