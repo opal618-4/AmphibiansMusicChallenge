@@ -1,5 +1,5 @@
 import { reactive, computed } from 'vue'
-import type { GameState, AnswerState } from '../types'
+import type { GameState } from '../types'
 import { gameLevels, getFrogById } from '../data/frogs'
 
 const state = reactive<GameState>({

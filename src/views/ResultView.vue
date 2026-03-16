@@ -108,10 +108,6 @@ function playAgain() {
   router.push('/game')
 }
 
-function goHome() {
-  resetGame()
-  router.push('/')
-}
 </script>
 
 <style scoped>
