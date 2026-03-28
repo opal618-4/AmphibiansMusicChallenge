@@ -104,7 +104,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useGameState } from '../composables/useGameState'
 import { mockLeaderboard } from '../data/scoreboard'
@@ -113,8 +113,8 @@ import SideNav from '../components/SideNav.vue'
 const router = useRouter()
 const { state, totalLevels, resetGame, startGame } = useGameState()
 
-const tabs = ['All Time', 'Weekly', 'Daily']
-const activeTab = ref('All Time')
+// const tabs = ['All Time', 'Weekly', 'Daily']
+// const activeTab = ref('All Time')
 
 const userAccuracy = computed(() => {
   if (totalLevels.value === 0) return 0
