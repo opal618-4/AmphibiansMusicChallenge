@@ -25,9 +25,9 @@
     <div class="detail-card">
       <div class="level-badge" v-if="fromGame">Level {{ currentLevel }} of 5</div>
 
-      <div class="hero-image">
+      <!-- <div class="hero-image">
         <img :src="frog.image" :alt="frog.commonName" />
-      </div>
+      </div> -->
 
       <div class="detail-header">
         <div class="detail-title-area">
@@ -44,16 +44,16 @@
       </div>
 
       <div class="detail-divider"></div>
-
-      <p class="detail-description">{{ frog.description }}</p>
-
-      <div class="habitat-section">
-        <h2 class="habitat-title">Habitat</h2>
-        <div class="habitat-content">
-          <p class="habitat-text">{{ frog.habitat }}</p>
-          <div class="habitat-image">
-            <img :src="frog.habitatImage" :alt="`${frog.commonName} habitat`" />
+      <div class="detail-grid">
+        <div class="habitat-section">
+          <p class="detail-description">{{ frog.description }}</p>
+          <h2 class="habitat-title">Habitat</h2>
+          <div class="habitat-content">
+            <p class="habitat-text">{{ frog.habitat }}</p>
           </div>
+        </div>
+        <div class="habitat-image">
+          <img :src="frog.habitatImage" :alt="`${frog.commonName} habitat`" />
         </div>
       </div>
 
@@ -209,7 +209,7 @@ function handleNext() {
 }
 
 .detail-card {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
   background: var(--color-card);
   border-radius: 0 0 24px 24px;
@@ -235,7 +235,7 @@ function handleNext() {
 
 .hero-image {
   width: 100%;
-  height: 220px;
+  height: 120px;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 24px;
@@ -330,8 +330,9 @@ function handleNext() {
 }
 
 .habitat-image {
+  justify-content: center;
   width: 280px;
-  height: 160px;
+  height: 215px;
   border-radius: 12px;
   overflow: hidden;
   flex-shrink: 0;
@@ -397,6 +398,12 @@ function handleNext() {
 .action-btn.secondary:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.detail-grid {
+  display:flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 @media (min-width: 1900px) {
