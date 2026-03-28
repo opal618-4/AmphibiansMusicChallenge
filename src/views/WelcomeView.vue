@@ -25,8 +25,8 @@
         </div>
       </div>
       <button class="start-btn" @click="$router.push('/gallery')">
-        Species Gallery
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+        Start
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="30" height="30">
           <line x1="5" y1="12" x2="19" y2="12"/>
           <polyline points="12 5 19 12 12 19"/>
         </svg>
@@ -100,11 +100,11 @@ import SideNav from '../components/SideNav.vue'
 }
 
 .welcome-subtitle {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--color-text-muted);
   line-height: 1.6;
   margin: 0 0 40px 0;
-  max-width: 480px;
+  max-width: 550px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -124,7 +124,7 @@ import SideNav from '../components/SideNav.vue'
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 20px;
   color: var(--color-text-muted);
   font-weight: 500;
 }
@@ -137,7 +137,7 @@ import SideNav from '../components/SideNav.vue'
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 30px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
@@ -145,12 +145,12 @@ import SideNav from '../components/SideNav.vue'
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 40px;
+  padding: 20px 60px;
   background: var(--color-text);
   color: white;
   border: none;
   border-radius: 50px;
-  font-size: 17px;
+  font-size: 25px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -207,7 +207,7 @@ import SideNav from '../components/SideNav.vue'
 
 .leaf {
   position: absolute;
-  font-size: 40px;
+  font-size: 50px;
   animation: leafFloat 12s ease-in-out infinite;
 }
 
@@ -218,5 +218,54 @@ import SideNav from '../components/SideNav.vue'
 @keyframes leafFloat {
   0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
   50% { transform: translateY(-15px) rotate(10deg); opacity: 0.5; }
+}
+
+@media (min-width: 1900px) {
+  .welcome-title {
+    font-size: 90px;
+  }
+  .accent {
+    font-size: 100px;
+  }
+  .welcome-subtitle {
+    font-size: 35px;
+    max-width: 1200px;
+  }
+  .welcome-features {
+    gap: 60px;
+    margin-top: 120px;
+    margin-bottom: 60px;
+  }
+  .feature {
+    font-size: 32px;
+  }
+  .start-btn {
+    font-size: 38px;
+    padding: 28px 90px;
+  }
+  .deco-circle.c1 {
+    width: 900px;
+    height: 900px;
+    top: -200px;
+    right: -200px;
+  }
+  .deco-circle.c2 {
+    width: 500px;
+    height: 500px;
+    bottom: -100px;
+    left: -100px;
+  }
+  .deco-circle.c3 {
+    width: 350px;
+    height: 350px;
+    top: 35%;
+    left: 8%;
+  }
+  .leaf {
+    font-size: 90px;
+  }
+  .leaf.l3 {
+    font-size: 50px;
+  }
 }
 </style>

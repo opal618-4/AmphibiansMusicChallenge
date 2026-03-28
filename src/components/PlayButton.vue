@@ -126,4 +126,47 @@ defineEmits<{
 .state-wrong .play-label {
   color: var(--color-wrong);
 }
+
+@media (min-width: 1900px) {
+  .play-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .play-ring {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border: 3px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .play-icon-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .play-label {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+}
 </style>

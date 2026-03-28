@@ -30,7 +30,7 @@
             class="species-row"
           >
             <div class="species-img">
-              <img :src="getFrogById(level.correctFrogId)?.image" :alt="getFrogById(level.correctFrogId)?.commonName" />
+              <img :src="getFrogById(level.correctFrogId)?.habitatImage" :alt="getFrogById(level.correctFrogId)?.commonName" />
             </div>
             <div class="species-info">
               <span class="species-name">{{ getFrogById(level.correctFrogId)?.commonName }}</span>
@@ -44,12 +44,20 @@
       </div>
 
       <div class="result-actions">
-        <button class="action-btn secondary" @click="$router.push('/scoreboard')">
+        <!-- <button class="action-btn secondary" @click="$router.push('/scoreboard')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
             <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
           Scoreboard
+        </button> -->
+        <button class="action-btn secondary" @click="goHome">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Exit
         </button>
         <button class="action-btn primary" @click="playAgain">
           Play Again
@@ -71,7 +79,7 @@ import { getFrogById } from '../data/frogs'
 import SideNav from '../components/SideNav.vue'
 
 const router = useRouter()
-const { state, totalLevels, startGame } = useGameState()
+const { state, totalLevels, startGame, resetGame } = useGameState()
 
 const scoreEmoji = computed(() => {
   const pct = state.score / totalLevels.value
@@ -102,6 +110,11 @@ const resultSubtitle = computed(() => {
   if (pct >= 0.6) return 'You know your frog calls well!'
   return 'Try again to improve your score!'
 })
+
+function goHome() {
+  resetGame()
+  router.push('/')
+}
 
 function playAgain() {
   startGame()
@@ -222,7 +235,7 @@ function playAgain() {
 }
 
 .species-title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--color-text);
   margin: 0 0 16px 0;
@@ -341,5 +354,184 @@ function playAgain() {
 .action-btn.secondary:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 1900px) {
+  .result-view {
+    min-height: 100vh;
+    padding: 30px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .result-content {
+    max-width: 1040px;
+    width: 100%;
+    text-align: center;
+    animation: fadeInUp 0.8s ease;
+  }
+
+  .result-badge {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .result-icon {
+    font-size: 40px;
+  }
+
+  .result-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 0 0 8px 0;
+  }
+
+  .result-subtitle {
+    font-size: 20px;
+    color: var(--color-text-muted);
+    margin: 0 0 26px 0;
+  }
+
+  .score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 26px;
+  }
+
+  .score-circle {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .score-number {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--color-primary);
+  }
+
+  .score-divider {
+    font-size: 32px;
+    color: var(--color-text-muted);
+  }
+
+  .score-total {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+  }
+
+  .score-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .result-species {
+    text-align: left;
+    background: var(--color-card);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .species-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 16px 0;
+  }
+
+  .species-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .species-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .species-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .species-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .species-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .species-name {
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .species-fact {
+    display: block;
+    font-size: 16px;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .species-status {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 50px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
 }
 </style>

@@ -4,7 +4,7 @@
     @click="$emit('click')"
   >
     <div class="card-image">
-      <img :src="frog.image" :alt="frog.commonName" />
+      <img :src="frog.habitatImage" :alt="frog.commonName" />
     </div>
     <div class="card-info">
       <h3 class="card-name">{{ frog.commonName }}</h3>
@@ -116,5 +116,79 @@ defineEmits<{
   background: var(--color-primary);
   color: white;
   border-color: var(--color-primary);
+}
+
+@media (min-width: 1900px) {
+  .frog-gallery-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: var(--color-card);
+    border-radius: 16px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .frog-gallery-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    border-color: var(--color-primary);
+  }
+
+  .card-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 8px 0;
+  }
+
+  .card-scientific {
+    font-size: 20px;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0 0 16px 0;
+  }
+
+  .listen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: 1.5px solid var(--color-border);
+    background: var(--color-bg);
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: all 0.2s ease;
+  }
+
+  .listen-btn svg {
+    width: 30px;
+    height: 30px;
+  }
 }
 </style>

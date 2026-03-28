@@ -145,4 +145,48 @@ function formatTime(seconds: number): string {
   font-size: 10px;
   letter-spacing: 1.5px;
 }
+
+@media (min-width: 1900px) {
+  
+  .waveform-container {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .waveform-bars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 80px;
+    margin-bottom: 8px;
+  }
+
+  .waveform-bar {
+    width: 20px;
+    border-radius: 10px;
+    background: var(--color-primary);
+    opacity: 0.4;
+    transition: opacity 0.3s ease, background 0.3s ease;
+  }
+
+  .waveform-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: var(--color-text-muted);
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .waveform-label {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+  }
+
+}
 </style>

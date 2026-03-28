@@ -159,4 +159,72 @@ function toggleSound(frog: FrogSpecies) {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
+
+@media (min-width: 1900px) {
+  .gallery-view {
+    min-height: 100vh;
+    padding: 80px 80px 80px 80px;
+    position: relative;
+  }
+
+  .back-btn {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--color-text);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    z-index: 100;
+  }
+
+  .gallery-content {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .gallery-title {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+    color: var(--color-text);
+  }
+
+  .gallery-subtitle {
+    text-align: center;
+    font-size: 25px;
+    color: var(--color-text-muted);
+    margin: 0 0 40px 0;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 70px;
+  }
+
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 45px;
+    border-radius: 50px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .action-btn svg {
+    width: 30px;
+    height: 30px;
+  }
+}
 </style>

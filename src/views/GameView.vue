@@ -287,4 +287,82 @@ onMounted(() => {
 .fade-leave-to {
   opacity: 0;
 }
+
+@media (min-width: 1900px) {
+  .game-view {
+    min-height: 100vh;
+    padding: 40px 80px 24px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .game-content {
+    max-width: 1500px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .game-title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .game-subtitle {
+    text-align: center;
+    font-size: 20px;
+    color: var(--color-text-muted);
+    margin: 0 0 8px 0;
+  }
+
+  .choices-section {
+    width: 100%;
+    background: rgb(196, 196, 196, 0.3);
+    border-radius: 20px;
+    padding: 24px 24px 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    margin: 10px 0 10px 0;
+  }
+
+  .choices-grid {
+    display: flex;
+    gap: 30px;
+  }
+
+  /* Correct overlay */
+
+  .correct-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--color-correct);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    color: var(--color-correct);
+  }
+
+  .correct-title {
+    font-size: 60px;
+    font-weight: 800;
+    color: var(--color-correct);
+    margin: 0 0 8px 0;
+  }
+
+  .correct-subtitle {
+    font-size: 25px;
+    color: var(--color-correct);
+    margin: 0;
+    font-weight: 500;
+  }
+}
 </style>

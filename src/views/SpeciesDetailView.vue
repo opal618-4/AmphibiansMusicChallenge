@@ -118,7 +118,7 @@ const tabs = computed(() => {
   // Add remaining as locked
   const remaining = 5 - completed.length
   for (let i = 0; i < remaining; i++) {
-    completed.push({ id: `locked-${i}`, label: `Lv.${completed.length + i + 1}`, locked: true })
+    completed.push({ id: `locked-${i}`, label: `Lv.${currentLevel.value +1 + i}`, locked: true })
   }
   return completed
 })
@@ -397,5 +397,194 @@ function handleNext() {
 .action-btn.secondary:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 1900px) {
+  .detail-view {
+    min-height: 100vh;
+    padding: 40px 80px;
+    position: relative;
+  }
+
+  .tab-bar {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+
+  .tab {
+    padding: 10px 20px;
+    border: none;
+    background: var(--color-card);
+    border-radius: 12px 12px 0 0;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: all 0.3s ease;
+  }
+
+  .tab.active {
+    background: var(--color-card);
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 20px;
+    padding: 12px 24px;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+  }
+
+  .detail-card {
+    max-width: 1040px;
+    margin: 0 auto;
+    border-radius: 0 0 24px 24px;
+    padding: 32px;
+  }
+
+  .level-badge {
+    font-size: 18px;
+    color: var(--color-text-muted);
+    margin-bottom: 16px;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 220px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background: var(--color-bg-secondary);
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .detail-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .detail-name {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 0 0 4px 0;
+  }
+
+  .detail-scientific {
+    font-size: 20px;
+    color: var(--color-primary);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .listen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 35px;
+    border-radius: 24px;
+    border: 1.5px solid var(--color-border);
+    background: var(--color-bg);
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .listen-btn svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .detail-divider {
+    height: 1px;
+    background: var(--color-border);
+    margin: 16px 0 20px 0;
+  }
+
+  .detail-description {
+    font-size: 18px;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin: 0 0 28px 0;
+  }
+
+  .habitat-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 12px 0;
+  }
+
+  .habitat-content {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .habitat-text {
+    flex: 1;
+    font-size: 18px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .habitat-image {
+    width: 280px;
+    height: 160px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .habitat-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fun-fact {
+    padding: 16px 20px;
+    background: var(--color-bg);
+    border-radius: 12px;
+    font-size: 18px;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .fun-fact-label {
+    font-weight: 700;
+  }
+
+  .detail-actions {
+    max-width: 1040px;
+    margin: 24px auto 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
 }
 </style>

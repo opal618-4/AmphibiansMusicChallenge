@@ -13,7 +13,7 @@
       <p class="scoreboard-subtitle">Weekly Leaderboard &amp; Achievements</p>
 
       <!-- Tabs -->
-      <div class="tab-bar">
+      <!-- <div class="tab-bar">
         <button
           v-for="tab in tabs"
           :key="tab"
@@ -23,7 +23,7 @@
         >
           {{ tab }}
         </button>
-      </div>
+      </div> -->
 
       <!-- Your Performance -->
       <div class="your-performance">
@@ -494,5 +494,191 @@ function goHome() {
 .action-btn.secondary:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 1900px) {
+  
+.scoreboard-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0 0 6px 0;
+}
+
+.scoreboard-subtitle {
+  text-align: center;
+  font-size: 19px;
+  color: var(--color-text-muted);
+  margin: 0 0 28px 0;
+}
+
+.perf-label {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  opacity: 0.7;
+}
+
+.live-badge {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(255,255,255,0.15);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.perf-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.perf-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.perf-rank {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.perf-message {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.perf-score {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+
+.perf-score-num {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.perf-accuracy {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+}
+
+/* Leaderboard List */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.leaderboard-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-card);
+  border-radius: 16px;
+  padding: 14px 20px;
+  transition: all 0.2s ease;
+}
+
+.entry-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.entry-avatar {
+  position: relative;
+}
+
+.entry-avatar .avatar-circle {
+  width: 44px;
+  height: 44px;
+}
+
+.avatar-initial {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+.rank-badge {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.entry-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.entry-name {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.entry-title {
+  font-size: 16px;
+  color: var(--color-text-muted);
+}
+
+.entry-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.entry-score {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.entry-accuracy {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Actions */
+.scoreboard-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 48px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
 }
 </style>

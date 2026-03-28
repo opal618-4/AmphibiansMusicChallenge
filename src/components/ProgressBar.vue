@@ -138,4 +138,55 @@ defineEmits<{
   color: var(--color-primary);
   font-size: 18px;
 }
+
+@media (min-width: 1900px) {
+  .progress-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: var(--color-card);
+    border-radius: 16px;
+    gap: 20px;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+  }
+
+  .nav-btn {
+    gap: 6px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 15px 50px;
+    border-radius: 8px;
+  }
+
+  .progress-label {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--color-text-muted);
+  }
+
+  .progress-segments {
+    display: flex;
+    gap: 6px;
+  }
+
+  .progress-segment {
+    width: 56px;
+    height: 6px;
+    border-radius: 3px;
+    background: #d0d0c8;
+    transition: background 0.4s ease;
+  }
+
+  .level-indicator {
+    font-size: 18px;
+    color: var(--color-text-muted);
+  }
+
+  .level-text strong {
+    color: var(--color-primary);
+    font-size: 18px;
+  }
+}
 </style>

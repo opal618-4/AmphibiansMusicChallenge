@@ -36,7 +36,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-
 const muted = ref(false)
 
 function toggleMute() {
@@ -48,7 +47,7 @@ function toggleMute() {
 .side-nav {
   position: fixed;
   right: 24px;
-  top: 20%;
+  top: 18%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -79,5 +78,16 @@ function toggleMute() {
 .side-nav-btn svg {
   width: 20px;
   height: 20px;
+}
+
+@media (min-width: 1900px) {
+  .side-nav-btn {
+    width: 68px;
+    height: 68px;
+  } 
+  .side-nav-btn svg {
+    width: 30px;
+    height: 30px;
+  }
 }
 </style>
