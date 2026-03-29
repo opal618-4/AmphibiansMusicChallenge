@@ -6,7 +6,7 @@
     @mouseleave="showTooltip = false"
   >
     <Transition name="tooltip">
-      <div v-if="showTooltip" class="custom-tooltip">
+      <div v-if="showTooltip && helpMode" class="custom-tooltip">
         {{ soundDescription }}
       </div>
     </Transition>
@@ -35,8 +35,10 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { useHelpMode } from '../composables/useHelpMode'
 
 const showTooltip = ref(false)
+const { helpMode } = useHelpMode()
 
 const props = withDefaults(defineProps<{
   isPlaying: boolean

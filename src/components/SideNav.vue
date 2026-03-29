@@ -24,7 +24,7 @@
         <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
       </svg>
     </button>
-    <button class="side-nav-btn" title="Help">
+    <button class="side-nav-btn" title="Help" @click="toggleHelpMode" :class="{ active: helpMode }">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="10"/>
         <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
@@ -36,7 +36,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useHelpMode } from '../composables/useHelpMode'
+
 const muted = ref(false)
+const { helpMode, toggleHelpMode } = useHelpMode()
 
 function toggleMute() {
   muted.value = !muted.value
@@ -73,6 +76,12 @@ function toggleMute() {
 .side-nav-btn:hover {
   background: var(--color-text);
   color: var(--color-bg);
+}
+
+.side-nav-btn.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
 }
 
 .side-nav-btn svg {

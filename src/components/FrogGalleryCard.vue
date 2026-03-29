@@ -1,22 +1,26 @@
 <template>
-  <div
-    class="frog-gallery-card"
-    @click="$emit('click')"
-  >
+  <div class="frog-gallery-card" @click="$emit('click')">
     <div class="card-image">
       <img :src="frog.habitatImage" :alt="frog.commonName" />
     </div>
     <div class="card-info">
       <h3 class="card-name">{{ frog.commonName }}</h3>
       <p class="card-scientific">{{ frog.scientificName }}</p>
-      <button class="listen-btn" :class="{ playing: isPlaying }" @click.stop="$emit('listen')">
-        <svg v-if="!isPlaying" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-          <path d="M15.54 8.46a5 5 0 010 7.07"/>
+      <button class="listen-btn" :class="{ playing: isPlaying }" @click.stop="$emit('listen')"
+        @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
+        <Transition name="tooltip">
+          <div v-if="showTooltip && helpMode" class="custom-tooltip">
+            {{ frog.callDescription }}
+          </div>
+        </Transition>
+        <svg v-if="!isPlaying" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+          height="16">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path d="M15.54 8.46a5 5 0 010 7.07" />
         </svg>
         <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-          <rect x="6" y="4" width="4" height="16"/>
-          <rect x="14" y="4" width="4" height="16"/>
+          <rect x="6" y="4" width="4" height="16" />
+          <rect x="14" y="4" width="4" height="16" />
         </svg>
         {{ isPlaying ? 'Stop' : 'Listen' }}
       </button>
@@ -25,8 +29,12 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useHelpMode } from '../composables/useHelpMode'
 import type { FrogSpecies } from '../types'
 
+const showTooltip = ref(false)
+const { helpMode } = useHelpMode()
 defineProps<{
   frog: FrogSpecies
   isPlaying?: boolean
@@ -49,12 +57,12 @@ defineEmits<{
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .frog-gallery-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   border-color: var(--color-primary);
 }
 
@@ -118,6 +126,51 @@ defineEmits<{
   border-color: var(--color-primary);
 }
 
+
+.custom-tooltip {
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 280px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  line-height: 1.4;
+}
+
+.custom-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.85);
+}
+
+.waveform-container {
+  position: relative;
+}
+
+.tooltip-enter-active,
+.tooltip-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.tooltip-enter-from,
+.tooltip-leave-to {
+  opacity: 0;
+}
+
 @media (min-width: 1900px) {
   .frog-gallery-card {
     display: flex;
@@ -129,12 +182,12 @@ defineEmits<{
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   }
 
   .frog-gallery-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     border-color: var(--color-primary);
   }
 
