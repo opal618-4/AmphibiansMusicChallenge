@@ -129,8 +129,8 @@ defineEmits<{
 
 .custom-tooltip {
   position: absolute;
-  top: -45px;
-  left: 50%;
+  top: -100px;
+  /* left: 50%; */
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.85);
   color: white;
