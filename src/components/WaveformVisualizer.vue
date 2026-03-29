@@ -1,5 +1,15 @@
 <template>
-  <div class="waveform-container" :class="{ 'is-playing': isPlaying, [`state-${answerState}`]: true }">
+  <div 
+    class="waveform-container" 
+    :class="{ 'is-playing': isPlaying, [`state-${answerState}`]: true }"
+    @mouseenter="showTooltip = true"
+    @mouseleave="showTooltip = false"
+  >
+    <Transition name="tooltip">
+      <div v-if="showTooltip" class="custom-tooltip">
+        {{ soundDescription }}
+      </div>
+    </Transition>
     <div class="waveform-bars">
       <div
         v-for="(bar, i) in bars"
@@ -24,16 +34,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+
+const showTooltip = ref(false)
 
 const props = withDefaults(defineProps<{
   isPlaying: boolean
   progress: number
   duration?: number
   answerState?: 'idle' | 'correct' | 'wrong'
+  soundDescription?: string
 }>(), {
   duration: 4,
-  answerState: 'idle'
+  answerState: 'idle',
+  soundDescription: 'Frog sound'
 })
 
 const bars = computed(() => {
@@ -144,6 +158,50 @@ function formatTime(seconds: number): string {
   font-weight: 600;
   font-size: 10px;
   letter-spacing: 1.5px;
+}
+
+.custom-tooltip {
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 280px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  line-height: 1.4;
+}
+
+.custom-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.85);
+}
+
+.waveform-container {
+  position: relative;
+}
+
+.tooltip-enter-active,
+.tooltip-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.tooltip-enter-from,
+.tooltip-leave-to {
+  opacity: 0;
 }
 
 @media (min-width: 1900px) {

@@ -39,6 +39,7 @@
         :is-playing="isPlaying"
         :progress="playbackProgress"
         :answer-state="state.answerState"
+        :sound-description="correctFrog?.callDescription || 'Frog sound'"
       />
 
       <div class="choices-section">
