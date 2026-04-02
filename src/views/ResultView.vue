@@ -355,6 +355,37 @@ function playAgain() {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
+@media (min-height: 864px) {
+    .result-view {
+    min-height: 100vh;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .result-content {
+    max-width: 740px;
+    width: 100%;
+    text-align: center;
+    animation: fadeInUp 0.8s ease;
+  }
+    .result-badge {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+}
 
 @media (min-width: 1900px) {
   .result-view {

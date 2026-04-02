@@ -601,7 +601,23 @@ function handleNext() {
 .next-species-nav {
   animation: fadeIn 0.5s ease;
 }
-
+@media (min-height: 864px) {
+  .detail-view {
+    min-height: 100vh;
+    padding: 40px 80px;
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+    .hero-section {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+}
 @media (min-width: 1900px) {
   .detail-view {
     min-height: 100vh;

@@ -125,7 +125,40 @@ defineEmits<{
   color: var(--color-wrong);
 }
 
-
+@media (min-height: 864px) {
+  .frog-choice-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--color-card);
+    border-radius: 16px;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 5px 20px rgba(25, 18, 18, 0.04);
+    flex: 1;
+  }
+  .choice-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .choice-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 10px 0;
+  }
+  .choice-scientific {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+  }
+}
 @media (min-width: 1900px) {
   .frog-choice-card {
     display: flex;

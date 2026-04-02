@@ -25,9 +25,9 @@
     <div class="detail-card">
       <div class="level-badge" v-if="fromGame">Level {{ currentLevel }} of 5</div>
 
-      <!-- <div class="hero-image">
+      <div class="hero-image">
         <img :src="frog.image" :alt="frog.commonName" />
-      </div> -->
+      </div>
 
       <div class="detail-header">
         <div class="detail-title-area">
@@ -405,7 +405,23 @@ function handleNext() {
   flex-direction: row;
   gap: 20px;
 }
+@media (min-height: 864px) {
+  .hero-image {
+    width: 100%;
+    height: 140px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background: var(--color-bg-secondary);
+  }
 
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+}
 @media (min-width: 1900px) {
   .detail-view {
     min-height: 100vh;

@@ -94,7 +94,7 @@ function toggleSound(frog: FrogSpecies) {
 }
 
 .gallery-content {
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
@@ -160,6 +160,39 @@ function toggleSound(frog: FrogSpecies) {
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
+@media (min-height: 864px) {
+  .gallery-view {
+    min-height: 100vh;
+    padding: 80px 80px 80px 80px;
+    position: relative;
+  }
+  .gallery-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .gallery-subtitle {
+    text-align: center;
+    font-size: 25px;
+    color: var(--color-text-muted);
+    margin: 0 0 80px 0;
+  }
+   .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 100px;
+  }
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 45px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
 @media (min-width: 1900px) {
   .gallery-view {
     min-height: 100vh;
@@ -218,7 +251,7 @@ function toggleSound(frog: FrogSpecies) {
     gap: 10px;
     padding: 20px 45px;
     border-radius: 50px;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 700;
   }
 
